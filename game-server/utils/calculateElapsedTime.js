@@ -5,7 +5,7 @@ const elapsedTime = (ts1, ts2) => {
 
     const hours = Math.floor(diffInSeconds / 60 / 60);
     const minutes = Math.floor(diffInSeconds / 60) - (hours * 60);
-    const seconds = diffInSeconds % 60;
+    const seconds = Math.floor(diffInSeconds % 60);
     return `${minutes} min  ${seconds} seconds`;
 }
 

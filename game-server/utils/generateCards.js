@@ -2,7 +2,7 @@ const { v4: uuidv4 } = require('uuid');
 const CONFIGS = require("../configs/configs");
 const STATIC_VALUES = require("../configs/staticValues");
 const shuffleArray = require('./shuffleArray');
-const imgageUrls = require('../configs/imgUrls');
+const imgageUrls = require('../configs/imgs');
 
 module.exports = (difficulty) => {
 

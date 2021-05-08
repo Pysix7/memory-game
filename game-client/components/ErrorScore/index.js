@@ -1,5 +1,7 @@
 import React from 'react';
-import { Card, Row, Col, Typography } from 'antd'
+import { Card, Typography } from 'antd'
+
+import './index.less';
 
 const { Title } = Typography;
 
@@ -7,19 +9,11 @@ const ErrorScore = (props) => {
     const { score } = props;
     return (
         <Card>
-            <Row>
-                <Col>
-                    <Title level={5} >Error Score: {' '}
-                        <span
-                            style={{
-                                color: 'orangered'
-                            }}
-                        >
-                            {score}
-                        </span>
-                    </Title>
-                </Col>
-            </Row>
+            <Title level={5} className="title" >Error Score: {' '}
+                <span className="value">
+                    {score}
+                </span>
+            </Title>
         </Card>
     )
 }

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Row, Col, Typography } from 'antd'
+import { Card, Typography } from 'antd'
 import timeCal from '../../utils/timeCalc';
+
+import './index.less';
 
 const { Title } = Typography;
 
 const ElapsedTime = (props) => {
-    const { startTimer } = props;
+    const { startTimer, elapsedTime } = props;
 
     const [time, setTime] = useState(0);
 
@@ -27,19 +29,11 @@ const ElapsedTime = (props) => {
 
     return (
         <Card>
-            <Row>
-                <Col>
-                    <Title level={5} >Elapsed Time:{' '}
-                        <span
-                            style={{
-                                color: 'coral'
-                            }}
-                        >
-                            {timeCal(time)}
-                        </span>
-                    </Title>
-                </Col>
-            </Row>
+            <Title level={5} className="title">Elapsed Time:{' '}
+                <span className="value">
+                    {elapsedTime ? elapsedTime : timeCal(time)}
+                </span>
+            </Title>
         </Card>
     )
 }

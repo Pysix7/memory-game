@@ -1,5 +1,9 @@
 import React from 'react';
 import { Card, Row, Col, Typography } from 'antd'
+import ElapsedTime from '../ElapsedTime';
+import ErrorScore from '../ErrorScore';
+
+import './index.less';
 
 const { Title } = Typography;
 
@@ -11,10 +15,21 @@ const ResultBoard = (props) => {
     return (
         <Card>
             <Row gutter={[16, 16]}>
-                <Col>
-                    <Title level={2}>Congratulations, you have completed the game</Title>
-                    <Title level={3}>Error Score: {errorScore}</Title>
-                    <Title level={3}>Elapsed TIme: {elapsedTime}</Title>
+                <Col span={24}>
+                    <Title level={2} className="headingTitle">
+                        Congratulations, you have completed the game
+                    </Title>
+                    <Row gutter={[16, 16]}>
+                        <Col span={12}>
+                            <ElapsedTime
+                                startTimer={false}
+                                elapsedTime={elapsedTime}
+                            />
+                        </Col>
+                        <Col span={12}>
+                            <ErrorScore score={errorScore} />
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
         </Card>

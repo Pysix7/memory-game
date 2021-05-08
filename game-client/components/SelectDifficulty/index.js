@@ -9,9 +9,11 @@ const SelectDifficulty = (props) => {
     const { onDifficultySelect } = props;
     return (
         <Card>
-            <Row>
-                <Col>
-                    <Title level={3} >Please select game difficulty:</Title>
+            <Row gutter={[16, 16]}>
+                <Col span={24}>
+                    <Title level={3} className="title">
+                        Please select game difficulty:
+                    </Title>
                 </Col>
             </Row>
             <Row className="diffRow">

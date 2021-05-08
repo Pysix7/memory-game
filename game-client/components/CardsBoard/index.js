@@ -15,8 +15,8 @@ const GameBoard = (props) => {
                     const clickedItem = selectedCards.find((sel) => sel === item.id);
                     return (
                         <Col
-                            xs={6}
-                            sm={6}
+                            xs={12}
+                            sm={12}
                             md={8}
                             lg={3}
                             xl={3}

@@ -28,7 +28,7 @@ class MemoryGame extends PureComponent {
   wsClient = null;
 
   componentDidMount() {
-    this.wsClient = new WebSocket(configs.SERVER_URI);
+    this.wsClient = new WebSocket(configs.SERVER_WS_URI);
     this.listenToMessages();
     this.wsClient.onopen = () => {
       console.log(`websocket connection opened`)
@@ -240,6 +240,7 @@ class MemoryGame extends PureComponent {
                 />
               )
             }
+
             return comp;
           })()}
         </Card>
