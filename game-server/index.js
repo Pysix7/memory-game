@@ -19,6 +19,12 @@ server.use("/status", (req, res, next) => {
     res.send('<h1>Memory Game server is Up and Running *_* </h1>');
 });
 
+// statif file serving for serving images
+server.get('/img/*', (req, res) => {
+    const imgName = req.url.slice(5);
+    res.sendFile(__dirname + '/public/assets/' + imgName);
+});
+
 // setting CORS headers
 server.use((req, res, next) => {
     res.setHeader(

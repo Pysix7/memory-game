@@ -40,16 +40,16 @@ const GameCard = (props) => {
         if (cardOpen) {
             cardClsName = 'selectedCard';
         } else {
-            cardClsName = 'unselectedCard'
+            cardClsName = 'unselectedCard';
         }
     } else {
-        cardClsName = 'removedCard'
+        cardClsName = 'removedCard';
     };
-
+    const imageUrl = CONFIGS.SERVER_URI + '/img/' + imgUrl;
     return (
         <Card
             onClick={() => {
-                if (id) {
+                if (id && !cardSelected && !canClose) {
                     onCardClick(id)
                 }
             }}
@@ -57,7 +57,7 @@ const GameCard = (props) => {
         >
             {cardOpen ? (
                 <img
-                    src={imgUrl}
+                    src={imageUrl}
                     alt={'image'}
                     className="img"
                 />
