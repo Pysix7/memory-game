@@ -2,6 +2,7 @@ const express = require("express");
 const { v4: uuidv4 } = require('uuid');
 const WebSocket = require('ws');
 const http = require('http');
+const fs = require('fs');
 
 const generateCards = require('./utils/generateCards');
 const { saveProgress, getFile } = require('./utils/saveProgress');
@@ -13,6 +14,12 @@ const removeValidatedCards = require('./utils/removeValidatedCards');
 
 const server = express();
 const httpServer = http.createServer(server);
+
+// creating /game-boards directory if doesn't exist for use
+const gbDir = './game-boards';
+if (!fs.existsSync(gbDir)){
+    fs.mkdirSync(gbDir);
+}
 
 // status check endpoint
 server.use("/status", (req, res, next) => {
