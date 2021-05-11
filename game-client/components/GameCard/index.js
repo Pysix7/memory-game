@@ -39,6 +39,8 @@ const GameCard = (props) => {
     if (id) {
         if (cardOpen) {
             cardClsName = 'selectedCard';
+        } else if (canClose) {
+            cardClsName = 'disabledCard';
         } else {
             cardClsName = 'unselectedCard';
         }

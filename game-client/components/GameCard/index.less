@@ -1,3 +1,4 @@
+@import '~antd/lib/style/themes/default.less';
 
 .imgCard {
     height: 150px;
@@ -15,6 +16,11 @@
     cursor: pointer;
 }
 
+.disabledCard {
+    background-color: lightgrey;
+    cursor: not-allowed;
+}
+
 .removedCard {
     cursor: not-allowed;
 }
@@ -22,4 +28,20 @@
 .img {
     height: 100px;
     width: 100px;
+}
+
+@media only screen and (max-width: @screen-md) {
+    .imgCard {
+        height: 100px;
+        width: 125px; 
+        & > .ant-card-body {
+            padding: 10px;
+            text-align: center;
+        }
+    }
+
+    .img {
+        height: 80px;
+        width: 80px;
+    };
 }
