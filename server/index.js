@@ -17,7 +17,7 @@ const httpServer = http.createServer(server);
 
 // creating /game-boards directory if doesn't exist for use
 const gbDir = './game-boards';
-if (!fs.existsSync(gbDir)){
+if (!fs.existsSync(gbDir)) {
     fs.mkdirSync(gbDir);
 }
 
