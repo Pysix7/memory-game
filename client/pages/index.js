@@ -72,14 +72,6 @@ class MemoryGame extends PureComponent {
           case staticValues.MSG_TYPE_GAME_ROUND: {
             const roundValidation = msgData.data.validation === 'success';
             if (roundValidation) {
-              // if (this.state.cardsData.length === 2) {
-              //   // if only 2 cards are present and are validated then finish/ complete the game
-              //   setTimeout(() => {
-              //     this.sendMessage({
-              //       type: staticValues.MSG_TYPE_GAME_COMPLETE
-              //     });
-              //   }, 1000);
-              // }
               this.setState((prevState) => {
                 const updatedCD = removeValidatedCards(
                   prevState.cardsData,
@@ -173,6 +165,7 @@ class MemoryGame extends PureComponent {
         if (prevState.selectedCards.length > 0) {
           selCardArray = [...prevState.selectedCards, cardId]
 
+          // delayed so that the image is rendered to user before checking for validation 
           setTimeout(() => {
             this.sendMessage({
               type: staticValues.MSG_TYPE_GAME_ROUND,
@@ -182,7 +175,7 @@ class MemoryGame extends PureComponent {
                 errorScore: prevState.errorScore,
               }
             });
-          }, 2000);
+          }, 1000);
 
         } else {
           selCardArray.push(cardId)
@@ -214,7 +207,6 @@ class MemoryGame extends PureComponent {
           <Title level={1} className="gameTitle" >Memory game</Title>
           {(() => {
             let comp = null;
-            // if cardsData is present then display the cards
             if (gameCompleted) {
               comp = (
                 <ResultBoard
@@ -222,6 +214,7 @@ class MemoryGame extends PureComponent {
                   elapsedTime={elapsedTime}
                 />
               )
+              // if cardsData is present then display the cards
             } else if (cardsData && cardsData.length > 0) {
               comp = (
                 <GameBoard

@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const e = require('express');
 
 const getFile = (fileId) => {
     const filePath = path.join(__dirname + '/..' + '/game-boards' + `/${fileId}.json`);
