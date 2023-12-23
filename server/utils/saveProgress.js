@@ -6,9 +6,9 @@ const getFile = (fileId) => {
     let file = null;
 
     try {
-        const fileExists = fs.readFileSync(filePath);
+        const fileExists = fs.existsSync(filePath);
         if (fileExists) {
-            file = JSON.parse(fileExists);
+            file = JSON.parse(fs.readFileSync(filePath));
         }
     } catch (error) {
         console.log(`[getFile] error`, error)
